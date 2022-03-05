@@ -1,42 +1,59 @@
-window.alert("This is an alert! JavaScript is running!");
-
 var playerName = window.prompt("What is your robot's name?");
-console.log(playerName);
+var playerHealth = 100;
+var playerAttack = 10;
 
-console.log("This logs a string, good for leaving yourself a message");
+//You can also log multiple values at once like this
+console.log(playerName, playerAttack, playerHealth);
 
-//this will do math and log 20
-console.log(10 + 10);
+var enemyName = "Roborto";
+var enemyHealth = 50;
+var enemyAttack = 12;
 
-//what is this?
-console.log("Our robot's name is " + playerName);
+//Create function - This is a function declaration
+// function fight() {
+//     window.alert("Welcome to Robot Gladiators!");
+// }
 
-//this creates a function named "fight"
-function fight() {
-    window.alert("The fight has begun!");
-}
+//Execute function
+// fight ();
 
-//this calls our function to execute it
-//fight();
+//Create function - This is a function expression
+var fight = function() {
+    //Alter players that they are starting the round
+    window.alert("Welcome to Robot Gladiators!");
 
-// text from the lesson:
-// This is a String data type; it must be wrapped in double quotes (" ") or single quotes (' ').
-// var stringDataType = "This is a string, which is a fancy way to say text";
+    //Subtract the value of "playerAttack" from the value of "enemyHealth" and use that result to update the value in the "enemyHealth" variable
+    enemyHealth = enemyHealth-playerAttack;
 
-// This is a Number data type; it can be an integer (whole number) or have decimals (floated numbers).
-// var numberIntegerDataType = 10;
-// var numberFloatDataType = 10.4;
+    //Log a resulting message to the console so we know that it worked
+    console.log(
+        playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
+    )
 
-// This is a Boolean data type, which can only be given a value of true or false.
-// var booleanDataType = true;
+    //Check enemy's health
+    if (enemyHealth <=0) {
+        window.alert(enemyName + " has died!");
+    }
+    else {
+        window.alert(enemyName + " still has " + enemyHealth + " health left.");
+    }
 
-/* This is a comment */
+    //Subtract the value of "enemyAttck" from the value of "playerHealth" and use that result to update the value in the "playerHealth" variable
+    playerHealth = playerHealth - enemyAttack;
 
-/* 
-It
-can
-work
-like
-this. 
-*/
-// end text from the lesson
+    //Log a resulting message to the console so we know that it worked
+    console.log(
+        enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
+    )
+
+    //Check player's health
+    if (playerHealth <= 0) {
+        window.alert(playerName + " has died!");
+    }
+    else {
+        window.alert(playerName + " still has " + playerHealth + " health left.");
+    }
+};
+
+//Execute function
+fight ();
