@@ -41,7 +41,6 @@ var playerInfo = {
 
 //You can also log multiple values at once like this
 console.log(playerInfo.name, playerInfo.attack, playerInfo.health);
-debugger;
 var fightOrSkip = function() {
     var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
         //Conditional Recursive Function Call
@@ -165,19 +164,17 @@ var endGame = function() {
 var shop = function() {
     //ask player what they'd like to do
     var shopOptionPrompt = window.prompt(
-        "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
+        "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE to make a choice."
     );
+    shopOptionPrompt = parseInt(shopOptionPrompt);
     switch (shopOptionPrompt) {
-        case "REFILL": //new case
-        case "refill":
+        case 1:
             playerInfo.refillHealth();
             break;
-        case "UPGRADE": //new case
-        case "upgrade":
+        case 2:
             playerInfo.upgradeAttack();
             break;
-        case "LEAVE": //new case
-        case "leave":
+        case 3:
             window.alert("Leaving the store.");
             //do nothing so function will end
             break;
